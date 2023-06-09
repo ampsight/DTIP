@@ -46,7 +46,7 @@
     <div id="container">
         <?php
             echo $this->element('global_menu');
-            $topPadding = '50';
+            $topPadding = '40';
             if (!empty($debugMode) && $debugMode != 'debugOff') {
                 $topPadding = '0';
             }
@@ -77,7 +77,6 @@
             'keyboard-shortcuts',
         ],
     ]);
-    echo $this->element('footer');
     echo $this->element('sql_dump');
     ?>
     <div id="ajax_success_container" class="ajax_container">

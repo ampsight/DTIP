@@ -1,25 +1,18 @@
-<div style="width:100%;">
+<div style="width:100%; background-image: url(<?php echo $baseurl?>/img/DTIP-Background.png); background-color: #E4E4E4; background-position: bottom; position: absolute; bottom: 0;  background-repeat: no-repeat;  min-height: 100% !important; background-size: contain;">
     <?php
         echo $this->Session->flash('auth');
     ?>
 <table style="margin-left:auto;margin-right:auto;">
     <tr>
-    <td style="text-align:right;width:250px;padding-right:50px">
+    <td style="text-align:right;width:250px;padding-right:50px;">
         <?php if (Configure::read('MISP.welcome_logo')) echo $this->Html->image('custom/' . h(Configure::read('MISP.welcome_logo')), array('alt' => __('Logo'), 'onerror' => "this.style.display='none';")); ?>
     </td>
-    <td style="width:460px">
-        <span style="font-size:18px;">
-            <?php
-                if (Configure::read('MISP.welcome_text_top')) {
-                    echo h(Configure::read('MISP.welcome_text_top'));
-                }
-            ?>
-        </span><br /><br />
-        <div>
+    <td style="width:460px;">
+        <div style="margin-top: 50px;">
         <?php if (Configure::read('MISP.main_logo') && file_exists(APP . '/webroot/img/custom/' . Configure::read('MISP.main_logo'))): ?>
             <img src="<?php echo $baseurl?>/img/custom/<?php echo h(Configure::read('MISP.main_logo'));?>" style=" display:block; margin-left: auto; margin-right: auto;" />
         <?php else: ?>
-            <img src="<?php echo $baseurl?>/img/misp-logo-s-u.png" style="display:block; margin-left: auto; margin-right: auto;"/>
+            <img src="<?php echo $baseurl?>/img/DTIP-Logo.png" style="width: 250px; display:block; margin-top: 20px; margin-left: auto; margin-right: auto;"/>
         <?php endif;?>
         </div>
         <?php
@@ -35,7 +28,9 @@
             if ($formLoginEnabled):
             echo $this->Form->create('User');
         ?>
-        <legend><?php echo __('Login');?></legend>
+        <!-- <legend><?php echo __('Login');?></legend> -->
+        <div style="padding: 0 25%;">
+        <div style="display: flex; flex-direction: column;">
         <?php
             echo $this->Form->input('email', array('autocomplete' => 'off', 'autofocus'));
             echo $this->Form->input('password', array('autocomplete' => 'off'));
@@ -50,6 +45,7 @@
                 );
             }
         ?>
+        </div>
             <div class="clear">
             <?php
                 echo empty(Configure::read('Security.allow_self_registration')) ? '' : sprintf(
@@ -61,6 +57,7 @@
             ?>
             </div>
             <?= $this->Form->button(__('Login'), array('class' => 'btn btn-primary')); ?>
+            </div>
         <?php
             echo $this->Form->end();
             endif;

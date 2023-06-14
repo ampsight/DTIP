@@ -12,7 +12,7 @@
         <?php if (Configure::read('MISP.main_logo') && file_exists(APP . '/webroot/img/custom/' . Configure::read('MISP.main_logo'))): ?>
             <img src="<?php echo $baseurl?>/img/custom/<?php echo h(Configure::read('MISP.main_logo'));?>" style=" display:block; margin-left: auto; margin-right: auto;" />
         <?php else: ?>
-            <img src="<?php echo $baseurl?>/img/DTIP-Logo.png" style="width: 250px; display:block; margin-top: 20px; margin-left: auto; margin-right: auto;"/>
+            <img src="<?php echo $baseurl?>/img/DTIP-Logo.png" style="width: 150px; display:block; margin: 20px auto;"/>
         <?php endif;?>
         </div>
         <?php
@@ -32,8 +32,8 @@
         <div style="padding: 0 25%;">
         <div style="display: flex; flex-direction: column;">
         <?php
-            echo $this->Form->input('email', array('autocomplete' => 'off', 'autofocus'));
-            echo $this->Form->input('password', array('autocomplete' => 'off'));
+            echo $this->Form->input('email', array('autocomplete' => 'off', 'autofocus', 'style' => 'margin-top:-5px'));
+            echo $this->Form->input('password', array('autocomplete' => 'off', 'style' => 'margin-top:-5px'));
             if (!empty(Configure::read('LinOTPAuth')) && Configure::read('LinOTPAuth.enabled')!== FALSE) {
                 echo $this->Form->input('otp', array('autocomplete' => 'off', 'type' => 'password', 'label' => 'OTP'));
                 echo "<div class=\"clear\">";
@@ -56,8 +56,10 @@
                 );
             ?>
             </div>
-            <?= $this->Form->button(__('Login'), array('class' => 'btn btn-primary')); ?>
+            <div style="padding-right: 8px;">
+                <?= $this->Form->button(__('Login'), array('class' => 'btn btn-primary btn-block')); ?>
             </div>
+        </div>
         <?php
             echo $this->Form->end();
             endif;

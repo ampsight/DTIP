@@ -1349,9 +1349,6 @@ class UsersController extends AppController
         if ($this->Session->check('Auth.User')) {
             $this->User->extralog($this->Auth->user(), "logout");
         }
-        if (!Configure::read('Plugin.CustomAuth_custom_logout')) {
-            $this->Flash->info(__('Good-Bye'));
-        }
         $user = $this->User->find('first', array(
             'conditions' => array(
                 'User.id' => $this->Auth->user('id')

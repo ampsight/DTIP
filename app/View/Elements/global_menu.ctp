@@ -513,7 +513,7 @@
             array(
                 'type' => 'root',
                 'url' => empty($homepage['path']) ? $baseurl : $baseurl . h($homepage['path']),
-                'html' => '<span class="logoBlueStatic bold" id="smallLogo">MISP</span>'
+                'html' => '<span class="logoBlueStatic bold" id="smallLogo">DTIP</span>'
             ),
             [
                 'type' => 'root',
